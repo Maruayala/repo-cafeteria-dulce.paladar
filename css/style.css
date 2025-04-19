@@ -109,33 +109,31 @@
 }
 
 .productos1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 15px;
-  background-image: url("./Imagenes/imagenes/fondocafe.jpg") !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
   padding: 20px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: black;
+}
+
+.card {
+  background-color: #6c5b7b;
 }
 
 .productos1 img {
-  width: 100%;
-  height: 40vh;
+  width: 0 50%;
+  height: 45vh;
   object-fit: cover;
-  border: 10px;
-  border: 5px solid rgb(215, 151, 218);
-  transition: 0, 3 ease-in-out;
-}
-
-.productos1 .card img {
-  width: 100%;
   border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
   box-shadow: 0 0 10px #e064ff, 0 0 20px #00ffff, 0 0 30px #ff00ff;
   animation: luces 2s infinite alternate;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 @keyframes luces {
@@ -149,24 +147,21 @@
     box-shadow: 0 0 50px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ff00ff;
   }
 }
+@media (max-width: 768px) {
+  .productos1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .card-body h3 {
   color: rgb(0, 0, 0);
   font-size: 2rem;
   font-family: fantasy !important;
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.979);
-  color: rgb(0, 0, 0);
 }
+
 .card-body p {
-  font-size: larger !important;
-  font-family: cursive !important;
-}
-
-.card {
-  background-color: #6c5b7b;
-}
-
-img:hover {
-  transform: scale(1s);
+  font-size: larger;
+  font-family: cursive;
 }
 
 .producto-galeria {
@@ -190,9 +185,17 @@ img:hover {
   display: flex;
 }
 .card-producto img {
+  border: 5px solid white;
   width: 50%;
-  height: 58vh;
+  height: 55vh;
   object-fit: cover;
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+.card-producto .card-producto img.mostrar {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card-body h3 {
@@ -205,31 +208,59 @@ img:hover {
 }
 .card-body p {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   font-style: oblique;
   font-weight: bold;
 }
 
 .productos2 {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   background: radial-gradient(circle, #6c5b7b, #f67280);
 }
 
-.carta {
-  width: 300px;
-  margin: auto;
-  box-shadow: 0px 0px 40px #ff00f2;
-  transition: box-shadow 0.3s ease-in-out;
-  background-color: #355c7d;
-  gap: 5px;
-  opacity: 1 !important;
-  transform: none !important;
+.card-group2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.carta h3 {
+
+.carta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 55vh;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0px 0px 40px #d198ce;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carta img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 500px) {
+  .img {
+    width: 100%;
+    max-height: 200px;
+  }
+  .card-group2 {
+    grid-template-columns: 1fr;
+  }
+  .carta {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+h3 {
   text-align: center;
   text-shadow: 50px 50px 50px #ff008c;
   font-family: cursive;
@@ -237,29 +268,17 @@ img:hover {
   text-shadow: 2px 2px 5px white;
   color: rgb(0, 0, 0);
 }
-.carta .carta body {
+
+.carta body {
   padding: 0px;
   gap: 10px;
   max-width: 20vh;
 }
-.carta p {
+
+p {
   text-align: center;
   font-size: 1rem;
   color: whitesmoke;
-}
-.carta .card-img-top {
-  height: 50vh;
-  object-fit: cover;
-}
-.carta .card-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background-image: url("../marumaru/Imagenes/imagenes/fondo.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 10px;
 }
 
 .productos4 {
@@ -339,14 +358,16 @@ img:hover {
   cursor: pointer;
   box-shadow: 10px 10px 30px white;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-a:hover {
-  transform: scale(1.05);
+#boton-comprar:hover {
+  transform: scale(1.2);
+  background-color: #6c5b7b;
 }
 
-a:active {
-  transform: scale(1.5);
+#boton-comprar:active {
+  transform: scale(2);
   background-color: #355c7d;
 }
 
@@ -362,13 +383,16 @@ a:active {
   cursor: pointer;
   box-shadow: 10px 10px 30px white;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-a:hover {
-  transform: scale(1.05);
+#boton-agregar:hover {
+  transform: scale(1.2);
+  background-color: #6c5b7b;
 }
-a:hover a:active {
-  transform: scale(1.5);
+#boton-agregar:hover #boton-agregar:active {
+  transform: scale(2);
+  background-color: #c06c84;
 }
 
 .btn-primary {
@@ -499,14 +523,7 @@ P {
   padding: 0;
 }
 
-.contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .body {
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
@@ -517,7 +534,7 @@ P {
 
 .main {
   display: grid;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 1fr, 1fr, 1fr;
 }
 
 .main {

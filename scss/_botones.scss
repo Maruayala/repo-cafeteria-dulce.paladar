@@ -7,29 +7,33 @@
 
 
 #boton-comprar{
-    @include estilo-boton(#c06c84, 1rem, black);}
+    @include estilo-boton(#c06c84, 1rem, black);
+    display: inline-block;}
     
 
 
-a:hover {
+#boton-comprar:hover {
 
-    transform: scale(1.05);}
+    transform: scale(1.2);
+background-color: #6c5b7b;}
 
-
-a:active {
-    transform: scale(1.5);
-    background-color: #355c7d;
+#boton-comprar:active {
+    transform: scale(2);
+    background-color: #355c7d ;
 }
     
 #boton-agregar{
-        @include estilo-boton(#6c5b7b, 1rem,black);}
+        @include estilo-boton(#6c5b7b, 1rem,black);
+        display: inline-block}
 
-a:hover {
-            transform: scale(1.05);
+#boton-agregar:hover {
+            transform: scale(1.2); 
+            background-color: #6c5b7b;
         
         
-a:active {
-            transform: scale(1.5);
+#boton-agregar:active {
+            transform: scale(2);
+            background-color: #c06c84;
         }}
         
 
@@ -37,7 +41,8 @@ a:active {
 
         //boton formulario//
 .btn-primary{
-    @include estilo-boton(#355c7d, 2rem, white);}
+    @include estilo-boton(#355c7d, 2rem, white);
+}
         
     
     

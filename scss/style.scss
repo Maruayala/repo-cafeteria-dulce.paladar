@@ -1,5 +1,5 @@
 
-@use 'main';
+@use '_main';
 
 
 
@@ -8,15 +8,10 @@
     padding:0;
 }
 
-.contenedor{
-    
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
     .body{
-    display: flex;
+
     flex-direction: column;
     min-height: 100vh;
     margin:0;
@@ -28,7 +23,7 @@
     
 .main{
 display: grid;
-grid-template-columns: 15% 1fr;
+grid-template-columns: 1fr, 1fr, 1fr;
 }
 
 
